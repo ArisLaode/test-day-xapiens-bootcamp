@@ -1,0 +1,22 @@
+{
+  "name": "test-day-xapiens-bootcamp",
+  "version": "1.0.0",
+  "description": "test day xapiens bootcamp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArisLaode/test-day-xapiens-bootcamp.git"
+  },
+  "author": "la ode aris saputra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArisLaode/test-day-xapiens-bootcamp/issues"
+  },
+  "homepage": "https://github.com/ArisLaode/test-day-xapiens-bootcamp#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
