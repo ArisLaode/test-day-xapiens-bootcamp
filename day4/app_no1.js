@@ -1,10 +1,14 @@
 const fs = require("fs");
 
-async function print() {
-  const directory = await fs.promises.readdir("/");
+const readDir = () =>
+  new Promise((resolve, rejects) =>
+    fs.readdir("/", (err, result) => {
+      if (err) rejects(err);
+      resolve(result);
+    })
+  );
 
-  for (const result of directory) {
-    console.log(result);
-  }
-}
-print("./").catch(console.error);
+(async () => {
+  const dir = await readDir();
+  console.log({ dir });
+})();

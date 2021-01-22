@@ -1,44 +1,63 @@
-const { response } = require("express");
-const fetch = require("node-fetch");
-let api = "https://mul14.github.io/data/employees.json";
+const axios = require("axios").default;
+const url = "https://mul14.github.io/data/employees.json";
 
-async function getEmployee() {
-  let resData = await fetch(`${api}`);
-  let responses = await resData.json();
+const getData = () =>
+  axios
+    .get(url)
+    .then((response) => response.data)
+    .catch((error) => console.log({ user: error }));
 
-  const salary = 15000000;
-  let employeeSalary = responses.find((item) => {
-    if (item.salary >= salary) {
-      console.log(item.salary);
-    }
+// const getSalary = async () => {
+//   const user = await getData();
+//   const above15 = user.filter((e) => e.salary >= 15000000);
+//   console.log({ above15 });
+// };
+// //above 15
+// console.log("salary:");
+// getSalary();
+
+// const jakarta = async () => {
+//   const user = await getData();
+//   const liveJakarta = user.filter((e) => {
+//     const live = e.addresses.filter((ad) => ad.city === "DKI Jakarta");
+//     // return (live)
+//     console.log({ live });
+//     return live.length ? e : null;
+//   });
+//   console.log({ liveJakarta });
+// };
+// console.log("live in jakarta:");
+// jakarta();
+
+// const birthday = async () => {
+//   const user = await getData();
+//   const userList = user.filter((ad) => {
+//     const date = new Date(ad.birthday);
+//     const month = date.getMonth();
+
+//     console.log({ month, d: ad.birthday });
+//     return month === 2 ? ad : null;
+//   });
+
+//   console.log({ userList });
+// };
+// birthday();
+
+const absen = async () => {
+  const user = await getData();
+  const absenUsers = user.filter((ad) => {
+    const userAbsen = ad.presence_list.filter((p) => {
+      const oct = new Date(p).getMonth();
+      //   console.log({ oct, m: p });
+      return oct === 9 ? p : null;
+    });
+
+    ad.presence_oct = userAbsen;
+    ad.presence_oct_count = userAbsen.length;
+    return ad;
+    // console.log({ userAbsen });
   });
-  console.log("\n");
+  console.log({ absenUsers });
+};
 
-  const city = "DKI Jakarta";
-  let employeeCity = responses.filter((item) => {
-    if (item.addresses[0].city === city) {
-      console.log(item.addresses[0].city);
-    }
-  });
-  console.log("\n");
-
-  const dept = "Research and development";
-  let employeeDept = responses.filter((item) => {
-    if (item.department.name === dept) {
-      console.log(item.department.name);
-    }
-  });
-  console.log("\n");
-
-  const birthday = "03";
-  let employeeBirth = responses.filter((item) => {
-    var newDate = item.birthday;
-    var newMonth = newDate.split("-");
-    if (newMonth[1] === birthday) {
-      console.log(newMonth[1]);
-    }
-  });
-
-  return employeeSalary, employeeCity, employeeDept, employeeBirth;
-}
-getEmployee();
+absen();
