@@ -7,41 +7,41 @@ const getData = () =>
     .then((response) => response.data)
     .catch((error) => console.log({ user: error }));
 
-// const getSalary = async () => {
-//   const user = await getData();
-//   const above15 = user.filter((e) => e.salary >= 15000000);
-//   console.log({ above15 });
-// };
-// //above 15
-// console.log("salary:");
-// getSalary();
+const getSalary = async () => {
+  const user = await getData();
+  const above15 = user.filter((e) => e.salary >= 15000000);
+  console.log({ above15 });
+};
+//above 15
+console.log("salary:");
+getSalary();
 
-// const jakarta = async () => {
-//   const user = await getData();
-//   const liveJakarta = user.filter((e) => {
-//     const live = e.addresses.filter((ad) => ad.city === "DKI Jakarta");
-//     // return (live)
-//     console.log({ live });
-//     return live.length ? e : null;
-//   });
-//   console.log({ liveJakarta });
-// };
-// console.log("live in jakarta:");
-// jakarta();
+const jakarta = async () => {
+  const user = await getData();
+  const liveJakarta = user.filter((e) => {
+    const live = e.addresses.filter((ad) => ad.city === "DKI Jakarta");
+    // return (live)
+    console.log({ live });
+    return live.length ? e : null;
+  });
+  console.log({ liveJakarta });
+};
+console.log("live in jakarta:");
+jakarta();
 
-// const birthday = async () => {
-//   const user = await getData();
-//   const userList = user.filter((ad) => {
-//     const date = new Date(ad.birthday);
-//     const month = date.getMonth();
+const birthday = async () => {
+  const user = await getData();
+  const userList = user.filter((ad) => {
+    const date = new Date(ad.birthday);
+    const month = date.getMonth();
 
-//     console.log({ month, d: ad.birthday });
-//     return month === 2 ? ad : null;
-//   });
+    console.log({ month, d: ad.birthday });
+    return month === 2 ? ad : null;
+  });
 
-//   console.log({ userList });
-// };
-// birthday();
+  console.log({ userList });
+};
+birthday();
 
 const absen = async () => {
   const user = await getData();
