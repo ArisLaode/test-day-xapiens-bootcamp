@@ -19,7 +19,7 @@ app.use("/", routers);
 app.use("/nama/alamat", routers);
 
 //TASK 1.d
-app.use("/data", (req, res) => {});
+app.use("/data", routers);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
