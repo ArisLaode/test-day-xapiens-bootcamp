@@ -5,7 +5,8 @@ class publisherController {
   static async get(req, res) {
     try {
       const payload = await publisher.findAll();
-      baseResponse({ message: "publishers retrieved", data: payload })(res);
+      res.json(payload);
+      // baseResponse({ message: "publishers retrieved", data: payload })(res);
     } catch (error) {
       console.log(error);
     }
@@ -99,6 +100,22 @@ class publisherController {
       res,
       200
     );
+  }
+
+  static async getAuthorPublisher(req, res) {
+    const payload = await publisher.findAll({
+      include: {
+        model: book,
+        where: {
+          id: req.params.id,
+        },
+        as: "books",
+      },
+    });
+    baseResponse({
+      message: "get publisher with author success",
+      data: payload,
+    })(res, 200);
   }
 }
 

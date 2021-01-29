@@ -10,8 +10,6 @@ routers.put("/update", BookController.updateBook);
 routers.delete("/:id", BookController.deleteBook);
 
 // Random book
-routers.get("/:id/books", BookController.getBookAuthor);
-routers.get("/:id/publishers", BookController.getAuthorPublisher);
 routers.get("/bookSorting", BookController.getBookSpesific);
 
 module.exports = routers;

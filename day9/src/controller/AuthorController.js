@@ -1,4 +1,5 @@
-const { author, book } = require("../db/models");
+const { author, book, publisher } = require("../db/models");
+
 const baseResponse = require("../helper/BaseResponse");
 
 class AuthorController {
@@ -84,7 +85,7 @@ class AuthorController {
     }
   }
 
-  static async getBookAuthor(req, res) {
+  static async getAuthorBook(req, res) {
     const payload = await book.findAll({
       include: [
         {
@@ -92,13 +93,31 @@ class AuthorController {
           where: {
             id: req.params.id,
           },
+          as: "authors",
         },
       ],
     });
-    response({ message: "get book with author success", data: payload })(
-      res,
-      200
-    );
+    baseResponse({
+      message: "book get book with author success",
+      data: payload,
+    })(res, 200);
+  }
+
+  static async getAuthorPublisher(req, res) {
+    const payload = await publisher.findOne({
+      include: [
+        {
+          model: book,
+          as: "books",
+          where: { id: req.params.id },
+          include: [{ model: author, as: "authors" }],
+        },
+      ],
+    });
+    baseResponse({
+      message: "Publishers get author success",
+      data: payload,
+    })(res, 200);
   }
 }
 

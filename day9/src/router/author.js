@@ -1,16 +1,15 @@
 const express = require("express");
 const routers = express.Router();
 const AuthorController = require("../controller/AuthorController");
-const BookController = require("../controller/BookController");
 
 // get all auhtors
 routers.get("/", AuthorController.get);
 routers.get("/:id", AuthorController.getById);
-routers.get("/:id/books", AuthorController.getByIdBook);
 routers.post("/create", AuthorController.createAuthor);
 routers.put("/update", AuthorController.updateAuthor);
 routers.delete("/:id", AuthorController.deleteAuthor);
-
+routers.get("/:id/books", AuthorController.getAuthorBook);
+routers.get("/:id/publishers", AuthorController.getAuthorPublisher);
 // Random
 // routers.get("/:id/books", AuthorController.getBookAuthor);
 

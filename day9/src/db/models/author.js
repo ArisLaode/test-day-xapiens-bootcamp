@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: {
           name: "author_id",
         },
-        as: "author",
+        as: "authors",
       });
     }
   }

@@ -12,11 +12,13 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: {
           name: "author_id",
         },
+        as: "authors",
       });
       book.belongsTo(models.publisher, {
         foreignKey: {
           name: "publisher_id",
         },
+        as: "publishers",
       });
     }
   }
