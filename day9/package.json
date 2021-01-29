@@ -1,5 +1,5 @@
 {
-  "name": "demo-express-day8",
+  "name": "demo-express-day9",
   "version": "1.0.0",
   "description": "demo express",
   "main": "app.js",
@@ -11,7 +11,7 @@
   "keywords": [
     "express"
   ],
-  "author": "harlita",
+  "author": "aris",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
