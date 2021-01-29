@@ -1,4 +1,4 @@
-const { book } = require("../db/models");
+const { book, author, publisher } = require("../db/models");
 const baseResponse = require("../helper/BaseResponse");
 
 class BookController {
@@ -71,6 +71,21 @@ class BookController {
       baseResponse({ message: "book delete", data: bookDetails })(res, 200);
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  static async getBookSpesific(req, res) {
+    const sort = req.query.sort_by;
+    const order = req.query.order_by;
+
+    if (sort === req.query.sort_by && order === req.query.order_by) {
+      const payload = await book.findAll({
+        order: [[sort, order]],
+      });
+      baseResponse({
+        message: "get publisher with author success",
+        data: payload,
+      })(res, 200);
     }
   }
 }

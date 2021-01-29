@@ -9,4 +9,7 @@ routers.post("/create", BookController.createBook);
 routers.put("/update", BookController.updateBook);
 routers.delete("/:id", BookController.deleteBook);
 
+// Random book
+routers.get("/bookSorting", BookController.getBookSpesific);
+
 module.exports = routers;
