@@ -8,5 +8,7 @@ routers.get("/:id", AuthorController.getById);
 routers.post("/create", AuthorController.createAuthor);
 routers.put("/update", AuthorController.updateAuthor);
 routers.delete("/:id", AuthorController.deleteAuthor);
+routers.get("/:id/books", AuthorController.getAuthorBook);
+routers.get("/:id/publishers", AuthorController.getAuthorPublisher);
 
 module.exports = routers;
