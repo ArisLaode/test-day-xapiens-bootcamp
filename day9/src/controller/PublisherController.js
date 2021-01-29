@@ -1,4 +1,4 @@
-const { publisher } = require("../db/models");
+const { publisher, author, book } = require("../db/models");
 const baseResponse = require("../helper/BaseResponse");
 
 class publisherController {
@@ -81,6 +81,24 @@ class publisherController {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  static async getAuthorPublisher(req, res) {
+    const payload = await publisher.findAll({
+      include: {
+        model: book,
+        where: {
+          id: req.params.id,
+        },
+        include: {
+          model: author,
+        },
+      },
+    });
+    response({ message: "get publisher with author success", data: payload })(
+      res,
+      200
+    );
   }
 }
 
