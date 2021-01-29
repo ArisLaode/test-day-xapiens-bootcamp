@@ -6,11 +6,6 @@ class BookController {
     try {
       const payload = await book.findAll();
       baseResponse({ message: "books retrieved", data: payload })(res);
-
-      // const payload = await book.findAll({
-      //   include: "authors",
-      // });
-      // baseResponse({ message: "books retrieved", data: payload })(res);
     } catch (error) {
       console.log(error);
     }
@@ -77,46 +72,6 @@ class BookController {
     } catch (error) {
       console.log(error);
     }
-  }
-
-  static async getBookAuthor(req, res) {
-    const payload = await book.findAll({
-      include: [
-        {
-          model: author,
-          where: {
-            id: req.params.id,
-          },
-          as: "author",
-        },
-      ],
-    });
-    baseResponse({
-      message: "book get book with author success",
-      data: payload,
-    })(res, 200);
-  }
-
-  static async getAuthorPublisher(req, res) {
-    const payload = await publisher.findAll({
-      include: [
-        {
-          model: book,
-          where: {
-            id: req.params.id,
-          },
-        },
-      ],
-      include: [
-        {
-          model: author,
-        },
-      ],
-    });
-    baseResponse({
-      message: "get publisher with author success",
-      data: payload,
-    })(res, 200);
   }
 
   static async getBookSpesific(req, res) {
