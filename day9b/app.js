@@ -4,11 +4,13 @@ const port = 3000;
 const customerRoutes = require("./src/router/customer");
 const driverRoutes = require("./src/router/driver");
 const productRoutes = require("./src/router/product");
+const orderRoutes = require("./src/router/order");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/customers", customerRoutes);
+app.use("/orders", orderRoutes);
 app.use("/drivers", driverRoutes);
 app.use("/products", productRoutes);
 

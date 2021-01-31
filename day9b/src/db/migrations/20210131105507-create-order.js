@@ -20,6 +20,9 @@ module.exports = {
       quantity: {
         type: Sequelize.INTEGER
       },
+      status: {
+        type: Sequelize.ENUM('accepted', 'sending', 'done', 'failure')
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE

@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     user_id: DataTypes.INTEGER,
     driver_id: DataTypes.INTEGER,
     product_id: DataTypes.INTEGER,
-    quantity: DataTypes.INTEGER
+    quantity: DataTypes.INTEGER,
+    status: DataTypes.ENUM('accepted', 'sending', 'done', 'failure')
   }, {
     sequelize,
     modelName: 'order',
