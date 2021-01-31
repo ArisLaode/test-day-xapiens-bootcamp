@@ -1,0 +1,28 @@
+{
+  "name": "demo-express-day9-next",
+  "version": "1.0.0",
+  "description": "demo express",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "start:dev": "nodemon app.js"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "aris",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "faker": "^5.2.0",
+    "sequelize-cli": "^6.2.0"
+  }
+}
