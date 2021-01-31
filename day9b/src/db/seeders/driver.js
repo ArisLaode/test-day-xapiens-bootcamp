@@ -2,11 +2,9 @@
 const faker = require("faker");
 faker.locale = "id_ID";
 
-const customer = [...Array(10)].map((customer) => {
+const driver = [...Array(10)].map((driver) => {
   return {
     full_name: faker.name.findName(),
-    username: faker.name.findName(),
-    email: faker.internet.email(),
     phone_number: faker.phone.phoneNumber(),
     created_at: faker.date.recent(),
     updated_at: faker.date.recent(),
@@ -24,7 +22,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    await queryInterface.bulkInsert("customers", customer);
+    await queryInterface.bulkInsert("drivers", driver);
   },
 
   down: async (queryInterface, Sequelize) => {

@@ -2,12 +2,10 @@
 const faker = require("faker");
 faker.locale = "id_ID";
 
-const customer = [...Array(10)].map((customer) => {
+const product = [...Array(10)].map((product) => {
   return {
-    full_name: faker.name.findName(),
-    username: faker.name.findName(),
-    email: faker.internet.email(),
-    phone_number: faker.phone.phoneNumber(),
+    name: faker.commerce.productName(),
+    price: faker.commerce.price(),
     created_at: faker.date.recent(),
     updated_at: faker.date.recent(),
   };
@@ -24,7 +22,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    await queryInterface.bulkInsert("customers", customer);
+    await queryInterface.bulkInsert("products", product);
   },
 
   down: async (queryInterface, Sequelize) => {

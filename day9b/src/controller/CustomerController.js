@@ -29,7 +29,6 @@ module.exports = class CustomerController {
         email: req.body.email,
         phone_number: req.body.phone_number,
       });
-      console.log(payload);
       baseResponse({ message: "customers created", data: payload })(res);
     } catch (error) {
       console.log(error);

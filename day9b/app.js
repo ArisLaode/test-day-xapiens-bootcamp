@@ -2,11 +2,15 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const customerRoutes = require("./src/router/customer");
+const driverRoutes = require("./src/router/driver");
+const productRoutes = require("./src/router/product");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/customers", customerRoutes);
+app.use("/drivers", driverRoutes);
+app.use("/products", productRoutes);
 
 app.use((req, res) => {
   res.status(404).json({
