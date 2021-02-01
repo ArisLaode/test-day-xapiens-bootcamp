@@ -84,39 +84,32 @@ class publisherController {
     }
   }
 
-  static async getAuthorPublisher(req, res) {
-    const payload = await publisher.findAll({
+  static async getPublisherBooks(req, res) {
+    const payload = await publisher.findOne({
+      where: { id: req.params.id },
       include: {
         model: book,
-        where: {
-          id: req.params.id,
-        },
-        include: {
-          model: author,
-        },
-      },
-    });
-    response({ message: "get publisher with author success", data: payload })(
-      res,
-      200
-    );
-  }
-
-  static async getAuthorPublisher(req, res) {
-    const payload = await publisher.findAll({
-      include: {
-        model: book,
-        where: {
-          id: req.params.id,
-        },
         as: "books",
       },
     });
-    baseResponse({
-      message: "get publisher with author success",
-      data: payload,
-    })(res, 200);
+    baseResponse({ message: "publisher get", data: payload })(res, 200);
   }
+
+  // static async getAuthorPublisher(req, res) {
+  //   const payload = await publisher.findOne({
+  //     include: {
+  //       model: book,
+  //       as: "books",
+  //     },
+  //     where: {
+  //       id: req.params.id,
+  //     },
+  //   });
+  //   baseResponse({
+  //     message: "get publisher with author success",
+  //     data: payload,
+  //   })(res, 200);
+  // }
 }
 
 module.exports = publisherController;

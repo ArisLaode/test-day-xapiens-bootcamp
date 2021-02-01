@@ -8,5 +8,5 @@ routers.get("/:id", PublisherController.getById);
 routers.post("/create", PublisherController.createPublisher);
 routers.put("/update", PublisherController.updatePublisher);
 routers.delete("/:id", PublisherController.deletePublisher);
-routers.get("/:id/books", PublisherController.getAuthorPublisher);
+routers.get("/:id/books", PublisherController.getPublisherBooks);
 module.exports = routers;

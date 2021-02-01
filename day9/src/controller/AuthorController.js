@@ -6,7 +6,7 @@ class AuthorController {
   static async get(req, res) {
     try {
       const payload = await author.findAll();
-      baseResponse({ message: "authors retrieved", data: payload })(res);
+      baseResponse({ message: "author retrieved", data: payload })(res);
     } catch (error) {
       console.log(error);
     }
@@ -15,7 +15,7 @@ class AuthorController {
   static async getById(req, res) {
     try {
       const payload = await author.findByPk(req.params.id);
-      baseResponse({ message: "authors retrieved", data: payload })(res);
+      baseResponse({ message: "author retrieved", data: payload })(res);
     } catch (error) {
       console.log(error);
     }
@@ -39,7 +39,7 @@ class AuthorController {
         last_name: req.body.last_name,
         email: req.body.email,
       });
-      baseResponse({ message: "authors created", data: payload })(res);
+      baseResponse({ message: "author created", data: payload })(res);
     } catch (error) {
       console.log(error);
     }
@@ -93,7 +93,7 @@ class AuthorController {
           where: {
             id: req.params.id,
           },
-          as: "authors",
+          as: "author",
         },
       ],
     });
@@ -104,13 +104,13 @@ class AuthorController {
   }
 
   static async getAuthorPublisher(req, res) {
-    const payload = await publisher.findOne({
+    const payload = await author.findOne({
+      where: { id: req.params.id },
       include: [
         {
-          model: book,
+          model: publisher,
           as: "books",
-          where: { id: req.params.id },
-          include: [{ model: author, as: "authors" }],
+          through: { attributes: [] },
         },
       ],
     });

@@ -10,7 +10,5 @@ routers.put("/update", AuthorController.updateAuthor);
 routers.delete("/:id", AuthorController.deleteAuthor);
 routers.get("/:id/books", AuthorController.getAuthorBook);
 routers.get("/:id/publishers", AuthorController.getAuthorPublisher);
-// Random
-// routers.get("/:id/books", AuthorController.getBookAuthor);
 
 module.exports = routers;

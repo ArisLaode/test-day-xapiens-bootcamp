@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+const author = require("./author");
 module.exports = (sequelize, DataTypes) => {
   class publisher extends Model {
     /**
@@ -13,6 +14,13 @@ module.exports = (sequelize, DataTypes) => {
           name: "publisher_id",
         },
         as: "books",
+      });
+
+      publisher.belongsToMany(models.author, {
+        through: models.book,
+        foreignKey: {
+          name: "publisher_id",
+        },
       });
     }
   }
