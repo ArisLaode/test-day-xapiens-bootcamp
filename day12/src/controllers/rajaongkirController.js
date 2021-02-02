@@ -4,7 +4,7 @@ const axios = require("axios").default;
 const response = require("../helper/responseAPI");
 
 const urlAPI = "https://api.rajaongkir.com/starter/";
-const APIkey = "430eeff762825a18f249247eee8de89b";
+const APIkey = "70d14532dbdaca1a00c2b8dc41116670";
 
 class rajaongkirController {
   static async getDataCost(req, res, next) {
