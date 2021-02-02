@@ -1,18 +1,19 @@
 const express = require("express");
+const router = require("./src/router");
 const app = express();
 const port = 3000;
-const authorRoutes = require("./src/router/author");
-const bookRoutes = require("./src/router/book");
-const publisherRoutes = require("./src/router/publisher");
 
-// const {authorRoutes, userRoutes} = require("./src/router")
+// router = require("./src/router");
+// const authorRoutes = require("./src/router/author");
+// const bookRoutes = require("./src/router/book");
+// const publisherRoutes = require("./src/router/publisher");
+
+const { authorRoutes, bookRoutes, publisherRoutes } = require("./src/router");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/authors", authorRoutes);
-app.use("/books", bookRoutes);
-app.use("/publishers", publisherRoutes);
+app.use("/api/v1", router);
 
 app.use("/static", express.static("public"));
 
