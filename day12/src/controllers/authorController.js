@@ -2,6 +2,7 @@
 
 const { author } = require("../db/models");
 const response = require("../helper/response");
+const { validationResult } = require("express-validator/check");
 
 class userController {
   static async getAuthor(req, res, next) {
@@ -37,6 +38,13 @@ class userController {
 
   static async createAuthor(req, res, next) {
     try {
+      const errors = validationResult(req);
+
+      if (!errors.isEmpty()) {
+        res.status(422).json({ errors: errors.array() });
+        return;
+      }
+
       const payload = await author.create({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
