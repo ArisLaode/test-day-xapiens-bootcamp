@@ -120,31 +120,6 @@ class userControl {
       next(err);
     }
   }
-
-  static async profile(req, res, next) {
-    try {
-      const payload = await user.findByPk(
-        {
-          attributes: ["id", "first_name", "last_name", "email"],
-        },
-        {
-          where: {
-            id: req.params.id,
-          },
-        }
-      );
-      const result = {
-        id_user: payload.id,
-        first_name: payload.first_name,
-        last_name: payload.last_name,
-        email: payload.email,
-      };
-      return response({ message: "Profile show", data: result })(res, 200);
-    } catch (err) {
-      res.status(422);
-      next(err);
-    }
-  }
 }
 
 module.exports = userControl;
