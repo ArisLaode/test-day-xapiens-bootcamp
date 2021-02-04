@@ -1,0 +1,22 @@
+[2021-02-03T11:00:03+07:00] "GET /api/v1/books/1" 200 260 - 99.488 ms[2021-02-03T11:57:18+07:00] "GET /api/v1/books/1" 200 260 - 79.412 ms
+[2021-02-03T12:00:12+07:00] "GET /api/v1/books/1" 200 260 - 105.263 ms
+[2021-02-03T12:01:06+07:00] "GET /api/v1/books/1" 200 260 - 69.316 ms
+[2021-02-03T12:02:32+07:00] "GET /api/v1/books/1" 200 260 - 67.278 ms
+[2021-02-03T12:02:46+07:00] "GET /api/v1/books/1" 500 1372 - 3.292 ms
+[2021-02-03T12:03:24+07:00] "GET /api/v1/books/1" 500 1372 - 8.317 ms
+[2021-02-03T12:03:50+07:00] "GET /api/v1/books/1" 200 260 - 63.419 ms
+[2021-02-03T12:04:10+07:00] "GET /api/v1/books/1" 200 260 - 73.306 ms
+[2021-02-03T14:47:08+07:00] "POST /authors/create" 400 33 - 4.308 ms
+[2021-02-03T14:47:57+07:00] "POST /api/v1/authors/create" 500 1466 - 5.435 ms
+[2021-02-03T14:48:48+07:00] "POST /api/v1/authors/create" 200 216 - 99.264 ms
+[2021-02-03T14:49:11+07:00] "POST /api/v1/authors/create" 200 219 - 19.778 ms
+[2021-02-03T14:51:02+07:00] "POST /api/v1/authors/create" 200 219 - 9.129 ms
+[2021-02-03T14:51:31+07:00] "POST /api/v1/authors/create" 200 221 - 12.155 ms
+[2021-02-03T15:45:42+07:00] "POST /api/v1/authors/create" - - - - ms
+[2021-02-03T15:46:06+07:00] "POST /api/v1/authors/create" - - - - ms
+[2021-02-03T15:46:49+07:00] "POST /api/v1/authors/create" - - - - ms
+[2021-02-03T15:48:46+07:00] "POST /api/v1/authors/create" - - - - ms
+[2021-02-03T15:50:33+07:00] "POST /api/v1/authors/create" - - - - ms
+[2021-02-03T16:07:55+07:00] "POST /api/v1/authors/create" 422 45 - 91.024 ms
+[2021-02-03T16:14:50+07:00] "POST /api/v1/authors/create" 422 45 - 84.422 ms
+[2021-02-03T16:17:28+07:00] "POST /api/v1/authors/create" 200 219 - 70.308 ms
