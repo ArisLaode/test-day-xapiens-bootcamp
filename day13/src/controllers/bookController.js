@@ -18,6 +18,7 @@ class bookController {
       const payload = await book.findByPk(req.params.id);
       response({ message: "get spesific book!", data: payload })(res);
     } catch (error) {
+      res.status(404);
       next(error);
     }
   }
@@ -38,8 +39,8 @@ class bookController {
   static async createBook(req, res, next) {
     try {
       const payload = await book.create({
-        authorId: req.body.authorId,
-        publisherId: req.body.publisherId,
+        author_id: req.body.author_id,
+        publisher_id: req.body.publisherid,
         title: req.body.title,
         price: req.body.price,
         year: req.body.year,
