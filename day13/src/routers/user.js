@@ -3,7 +3,7 @@ const userControl = require("../controllers/userController");
 const authenticate = require("../middlewares/authenticate");
 
 routers.get("/profile", authenticate, userControl.profile);
-routers.post("/", userControl.register);
+routers.post("/register", userControl.register);
 routers.get("/", userControl.getAll);
 routers.get("/:id", userControl.getId);
 routers.put("/:id", userControl.updateUser);
