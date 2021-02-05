@@ -61,10 +61,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       sequelize,
       modelName: "user",
-<<<<<<< HEAD
-=======
-      underscored: true,
->>>>>>> 2c1612c4a64fafd2cfd039d7752f011cb95e0959
     }
   );
 
@@ -78,9 +74,5 @@ module.exports = (sequelize, DataTypes) => {
       };
     },
   });
-<<<<<<< HEAD
   return user;
-=======
-  return User;
->>>>>>> 2c1612c4a64fafd2cfd039d7752f011cb95e0959
 };

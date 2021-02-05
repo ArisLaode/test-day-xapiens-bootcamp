@@ -90,3 +90,10 @@
 [2021-02-06T02:15:55+07:00] "GET /api/v1/users/profile" 200 77 - 71.776 ms
 =======
 >>>>>>> 2c1612c4a64fafd2cfd039d7752f011cb95e0959
+[2021-02-06T02:24:37+07:00] "GET /api/v1/users/profile" 500 503 - 82.916 ms
+[2021-02-06T02:25:32+07:00] "GET /api/v1/users/profile" 500 503 - 103.209 ms
+[2021-02-06T02:26:37+07:00] "GET /api/v1/users/profile" 500 503 - 90.599 ms
+[2021-02-06T02:27:20+07:00] "GET /api/v1/users/profile" 500 503 - 72.001 ms
+[2021-02-06T02:27:51+07:00] "GET /api/v1/users/profile" 500 503 - 75.718 ms
+[2021-02-06T02:28:18+07:00] "GET /api/v1/users/profile" 200 77 - 83.194 ms
+[2021-02-06T02:28:40+07:00] "POST /api/v1/users/login" 200 203 - 145.806 ms
