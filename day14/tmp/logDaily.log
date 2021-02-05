@@ -84,3 +84,6 @@
 [2021-02-05T16:42:56+07:00] "GET /api/v1/users/profile" 500 503 - 10.991 ms
 [2021-02-05T16:49:59+07:00] "GET /api/v1/users/profile" 500 503 - 106.089 ms
 [2021-02-05T16:51:12+07:00] "GET /api/v1/users/profile" 500 503 - 80.836 ms
+[2021-02-06T02:13:06+07:00] "GET /api/v1/users/profile" 500 489 - 103.747 ms
+[2021-02-06T02:15:17+07:00] "GET /api/v1/users/profile" 200 77 - 84.637 ms
+[2021-02-06T02:15:55+07:00] "GET /api/v1/users/profile" 200 77 - 71.776 ms
