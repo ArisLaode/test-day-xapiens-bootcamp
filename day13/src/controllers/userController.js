@@ -120,6 +120,11 @@ class userControl {
       next(err);
     }
   }
+
+  static async profile(req, res) {
+    res.status(200);
+    return res.json(req.user.entity);
+  }
 }
 
 module.exports = userControl;
