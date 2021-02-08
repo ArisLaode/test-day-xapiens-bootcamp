@@ -2,11 +2,13 @@
 
 let { publisher } = require("../db/models");
 let baseResponse = require("../helpers/response");
+const setRedis = require("../helpers/setRedis");
 
 class PublisherController {
   static async getAllDatas(req, res, next) {
     try {
       const payload = await publisher.findAll();
+      setRedis();
       baseResponse({ message: "publishers retrieved", data: payload })(res);
     } catch (error) {
       res.status(400);
@@ -18,6 +20,7 @@ class PublisherController {
       const payload = await publisher.findAll({
         include: "authors",
       });
+      setRedis();
       baseResponse({ message: "publishers retrieved", data: payload })(res);
     } catch (error) {
       res.status(400);
@@ -45,6 +48,7 @@ class PublisherController {
         phone: req.body.phone,
         website: req.body.website,
       });
+      setRedis();
       baseResponse({ message: "publishers created", data: payload })(res);
     } catch (error) {
       res.status(400);

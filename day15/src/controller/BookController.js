@@ -2,11 +2,13 @@
 
 let { author, book, publisher } = require("../db/models");
 let baseResponse = require("../helpers/response");
+const setRedis = require("../helpers/setRedis");
 
 class BookController {
   static async getAllDatas(req, res, next) {
     try {
       const payload = await book.findAll();
+      setRedis();
       baseResponse({ message: "books retrieved", data: payload })(res);
     } catch (error) {
       res.status(400);
@@ -34,6 +36,7 @@ class BookController {
         price: req.body.price,
         year: req.body.year,
       });
+      setRedis();
       baseResponse({ message: "books created", data: payload })(res);
     } catch (error) {
       res.status(400);
@@ -98,6 +101,7 @@ class BookController {
         },
         { where: { id: req.params.id } }
       );
+      setRedis();
       baseResponse({ message: "get book with author success", data: data })(
         res,
         200
@@ -121,6 +125,7 @@ class BookController {
           },
         },
       });
+      setRedis();
       baseResponse({
         message: "get publisher with author success",
         data: payload,

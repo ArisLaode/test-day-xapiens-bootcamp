@@ -1,5 +1,6 @@
 "use strict";
 const path = require("path");
+const setRedis = require("../helpers/setRedis");
 
 const { author } = require("../db/models");
 const baseResponse = require("../helpers/response");
@@ -8,6 +9,7 @@ class AuthorController {
   static async getAllDatas(req, res, next) {
     try {
       const payload = await author.findAll();
+      setRedis(req, payload);
       baseResponse({ message: "authors retrieved", data: payload })(res);
     } catch (err) {
       res.status(422);
@@ -33,6 +35,7 @@ class AuthorController {
         last_name: req.body.last_name,
         email: req.body.email,
       });
+      setRedis();
       baseResponse({ message: "authors created", data: payload })(res);
     } catch (error) {
       res.status(400);
@@ -56,6 +59,7 @@ class AuthorController {
           404
         );
       }
+      setRedis();
       baseResponse({ message: "author updated", data: authorDetails })(
         res,
         200
