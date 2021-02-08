@@ -1,0 +1,4 @@
+[2021-02-08T12:34:11+07:00] "GET /api/v1/authors/" 401 108 - 13.823 ms
+[2021-02-08T23:51:30+07:00] "POST /api/v1/user/register" 404 59 - 18.279 ms
+[2021-02-08T23:59:25+07:00] "POST /api/v1/user/register" 404 59 - 4.729 ms
+[2021-02-08T23:59:47+07:00] "POST /api/v1/user/register" 404 59 - 3.296 ms
