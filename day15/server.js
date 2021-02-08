@@ -14,6 +14,7 @@ const logMorgan = require("./src/middleware/logMorgan");
 const errorHandler = require("./src/middleware/errorHandler");
 
 const loggerMiddleware = require("./src/middleware/logger");
+const caching = require("./src/middleware/cacheRedis");
 
 const dsn = process.env.dsn_key;
 
@@ -21,42 +22,34 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const logger = (res, req, next) => {
-  // console.log("logger");
   next();
 };
 
 const logger2 = (res, req, next) => {
-  // console.log("logger2");
   next();
 };
 
 Sentry.init({
   dsn: dsn,
   integrations: [
-    // enable HTTP calls tracing
     new Sentry.Integrations.Http({ tracing: true }),
-    // enable Express.js middleware tracing
+
     new Tracing.Integrations.Express({ app }),
   ],
 
-  // for finer control
   tracesSampleRate: 1.0,
 });
 
 app.use(Sentry.Handlers.requestHandler());
 app.use(Sentry.Handlers.tracingHandler());
 
-// app.use(logger)
-// app.use(logger2)
-
 app.use(cors());
 app.use(logMorgan);
-// app.use(loggerMiddleware);
+app.use(caching);
 
 app.use("/api/v1", routers);
 app.use(Sentry.Handlers.errorHandler());
 
-// app.use(notFound); // middleware handling 404
 errorHandler.forEach((handler) => app.use(handler));
 
 app.listen(port, () => {
