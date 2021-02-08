@@ -1,0 +1,9 @@
+[2021-02-09T00:00:30+07:00] "POST /api/v1/user/register" 404 59 - 4.722 ms
+[2021-02-09T00:01:23+07:00] "POST /api/v1/user/" 404 59 - 0.965 ms
+[2021-02-09T00:03:27+07:00] "POST /api/v1/users/register" 422 72 - 169.357 ms
+[2021-02-09T00:04:10+07:00] "POST /api/v1/users/register" 200 303 - 122.666 ms
+[2021-02-09T00:05:16+07:00] "POST /api/v1/users/regist" 404 59 - 1.421 ms
+[2021-02-09T00:05:32+07:00] "POST /api/v1/users/login" 200 247 - 158.901 ms
+[2021-02-09T00:05:54+07:00] "POST /api/v1/users/profile" 404 59 - 1.087 ms
+[2021-02-09T00:05:57+07:00] "GET /api/v1/users/profile" 400 1156 - 21.704 ms
+[2021-02-09T00:07:53+07:00] "GET /api/v1/users/profile" 400 1156 - 18.922 ms
