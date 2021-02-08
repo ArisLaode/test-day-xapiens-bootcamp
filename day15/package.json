@@ -11,7 +11,7 @@
     "task",
     "expressJS"
   ],
-  "author": "heriipurnama",
+  "author": "aris",
   "license": "ISC",
   "dependencies": {
     "@sentry/node": "^6.0.4",
