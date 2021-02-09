@@ -1,7 +1,9 @@
 "use strict";
 const path = require("path");
 const setRedis = require("../helpers/setRedis");
-
+const Queue = require("bull");
+const QueueMQ = require("bullmq");
+const { setQueues, BullMQadapter, BullAdapter } = require("bull-board");
 const { author } = require("../db/models");
 const baseResponse = require("../helpers/response");
 
@@ -103,6 +105,13 @@ class AuthorController {
       next(err);
     }
     return baseResponse({ message: "photo upload succes" })(res, 200);
+  }
+
+  static async queueRead(req, res) {
+    const asQueue = new Queue();
+    const asotherQueue = new Queue();
+
+    setQueues([new BullAdapter(asQueue), new BullAdapter(asotherQueue)]);
   }
 }
 

@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 let { user } = require("../db/models");
 let baseResponse = require("../helpers/response");
 const token = require("../helpers/token");
+const mailgun = require("../lib/mailgun");
 
 class UserController {
   static async getAllDatas(req, res, next) {
@@ -36,6 +37,16 @@ class UserController {
         photo: req.body.photo,
         role: req.body.role,
       });
+
+      const data = {
+        from: "aris <laodearissaputra94@gmail.com>",
+        to: `${payload.email}`,
+        subject: "flash sale!",
+        text: `Hai ${payload.firstName} ${payload.lastName} , Welcome and enjoy with our app.
+                regards
+                Team App`,
+      };
+      await mailgun.messages().send(data);
       baseResponse({ message: "user created", data: payload })(res);
     } catch (error) {
       res.status(400);
