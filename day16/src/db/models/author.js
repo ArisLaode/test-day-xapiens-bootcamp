@@ -1,9 +1,7 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model, Sequelize } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class author extends Model {
+  class Author extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,42 +9,47 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-
-      // one to many
-      // author.hasMany(models.book, {
-      //   foreignKey: 'author_id'
-      // }),
-      // author.belongsToMany(models.book, {
-      //   foreignKey: 'author_id'
-      // })
-
-      author.hasMany(models.book, {
-        foreignKey: {
-          name: "author_id",
-        },
-        as: "books",
-      });
-
-      author.belongsToMany(models.publisher, {
-        through: "book",
-        foreignKey: {
-          name: "author_id",
-        }, as : "publishers"
-      });
-
+      Author.hasMany(models.post);
+      Author.hasMany(models.comment);
     }
-  };
-  author.init({
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    photo: DataTypes.STRING,
-    created_at: DataTypes.DATE,
-    updated_at: DataTypes.DATE
-  }, {
-    sequelize,
-    modelName: 'author',
-    underscored: true,
-  });
-  return author;
+
+    static filter(data) {
+      data.forEach(data => {
+        data.password = undefined
+        data.salt = undefined
+        data.createdAt = undefined
+        data.updatedAt = undefined
+      });
+      return data
+    }
+  }
+  Author.init(
+    {
+      id: {
+        type: Sequelize.INTEGER,
+        autoIncreament: true,
+        primaryKey: true,
+      },
+      username: {
+        type: Sequelize.STRING,
+      },
+      password: {
+        type: Sequelize.STRING,
+      },
+      salt: {
+        type: Sequelize.STRING,
+      },
+      email: {
+        type: Sequelize.STRING,
+      },
+      profile: {
+        type: Sequelize.STRING,
+      },
+    },
+    {
+      sequelize,
+      modelName: "author",
+    }
+  );
+  return Author;
 };
