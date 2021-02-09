@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -10,47 +10,43 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
+     */
 
-   return queryInterface.bulkInsert('comments', [{
-     id:1,
-    content: 'Komentar untuk dimar hanung di post 1',
-    status: 'posted',
-    authorId:1,
-    postId:1,
-    email: 'dimarhanung@gmail.com',
-    url:'https://google.com',
-    createdAt: new Date(),
-    updatedAt: new Date()
-  },
-  {
-    id:2,
-    content: 'Komentar untuk yoga vito post id 1',
-    status: 'posted',
-    authorId:2,
-    postId:1,
-    email: 'yogavito@gmail.com',
-    url:'https://google.com',
-    createdAt: new Date(),
-    updatedAt: new Date()
-  },
-  {
-    id:3,
-    content: 'Komentar untuk yoga vito post id 1',
-    status: 'posted',
-    authorId:2,
-    postId:2,
-    email: 'yogavito@gmail.com',
-    url:'https://google.com',
-    createdAt: new Date(),
-    updatedAt: new Date()
-  }
-
-
-]);
-
-
-
+    return queryInterface.bulkInsert("comments", [
+      {
+        id: 1,
+        content: "Komentar untuk aris di post 1",
+        status: "posted",
+        authorId: 1,
+        postId: 1,
+        email: "aris@gmail.com",
+        url: "https://google.com",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        id: 2,
+        content: "Komentar untuk aldi anda post id 1",
+        status: "posted",
+        authorId: 2,
+        postId: 1,
+        email: "aldianda@gmail.com",
+        url: "https://google.com",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        id: 3,
+        content: "Komentar untuk yoga vito post id 1",
+        status: "posted",
+        authorId: 2,
+        postId: 2,
+        email: "yogavito@gmail.com",
+        url: "https://google.com",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ]);
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -60,6 +56,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('comments', null, {});
-  }
+    await queryInterface.bulkDelete("comments", null, {});
+  },
 };
