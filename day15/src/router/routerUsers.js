@@ -34,5 +34,6 @@ routers
 routers.route("/login").post(UserController.login);
 
 routers.route("/profile").get(Auth, UserController.profile);
+routers.get("/admin/queue-monitor", Auth, UserController.queueRead);
 
 module.exports = routers;

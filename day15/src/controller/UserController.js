@@ -125,6 +125,13 @@ class UserController {
     res.status(200);
     return res.json(req.user.entity);
   }
+
+  static async queueRead(req, res) {
+    const asQueue = new Queue();
+    const asotherQueue = new Queue();
+
+    setQueues([new BullAdapter(asQueue), new BullAdapter(asotherQueue)]);
+  }
 }
 
 module.exports = UserController;
