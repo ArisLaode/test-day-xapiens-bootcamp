@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 let { user } = require("../db/models");
 let baseResponse = require("../helpers/response");
 const token = require("../helpers/token");
-const mailgun = require("../lib/mailgun");
+const mailgun = require("../middleware/mailgun");
 
 class UserController {
   static async getAllDatas(req, res, next) {
