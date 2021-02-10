@@ -4,8 +4,9 @@
   "description": "task ExpressJS",
   "main": "app.js",
   "scripts": {
-    "test": "node app.js",
-    "start-dev": "./node_modules/nodemon/bin/nodemon.js app.js"
+    "start": "node server.js",
+    "test": "node server.js",
+    "start-dev": "./node_modules/nodemon/bin/nodemon.js server.js"
   },
   "keywords": [
     "task",
