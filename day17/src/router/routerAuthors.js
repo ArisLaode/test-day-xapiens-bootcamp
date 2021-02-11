@@ -53,18 +53,16 @@ routers
     SchemaValidator.validate,
     AuthorController.updateAuthor
   )
-  .delete(Auth, authorizeAdmin, AuthorController.deleteAuthors);
+  .delete(Auth,authorizeAdmin, AuthorController.deleteAuthors);
 
 routers.route("/uploadPhoto/:id").put(
   Auth,
-  // multer({
-  //   storage: storagePhotoAuthor,
-  //   fileFilter: imageFilter,
-  //   limits: { fileSize: maxSize },
-  // }).single("photo"),
+  multer({
+    storage: storagePhotoAuthor,
+    fileFilter: imageFilter,
+    limits: { fileSize: maxSize },
+  }).single("photo"),
   AuthorController.uploadPhoto
 );
-
-routers.route("/uploadPhoto").post(Auth, AuthorController.uploadImage);
 
 module.exports = routers;

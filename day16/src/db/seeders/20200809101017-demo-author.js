@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -10,27 +10,29 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
-   return queryInterface.bulkInsert('authors', [{
-    id:1,
-    username: 'dimarhanung',
-    password: '123abcd',
-    salt:'aasa3512532as',
-    email: 'dimarhanung@gmail.com',
-    profile:'https://i.ibb.co/3fvMkW5/image.png',
-    createdAt: new Date(),
-    updatedAt: new Date()
-  },
-  {
-    id:2,
-    username: 'yogavito',
-    password: '2password',
-    salt:'aasa3512532as',
-    email: 'yogavito@gmail.com',
-    profile:'https://i.ibb.co/3fvMkW5/image.png',
-    createdAt: new Date(),
-    updatedAt: new Date()
-  }]);
+     */
+    return queryInterface.bulkInsert("authors", [
+      {
+        id: 1,
+        username: "aris",
+        password: "123abcd",
+        salt: "aasa3512532as",
+        email: "aris123@gmail.com",
+        profile: "https://i.ibb.co/3fvMkW5/image.png",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        id: 2,
+        username: "aldianda",
+        password: "2password",
+        salt: "aasa3512532as",
+        email: "aldianda@gmail.com",
+        profile: "https://i.ibb.co/3fvMkW5/image.png",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ]);
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -40,6 +42,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('authors', null, {});
-  }
+    await queryInterface.bulkDelete("authors", null, {});
+  },
 };

@@ -1,49 +1,41 @@
 {
-  "name": "task",
+  "name": "day17",
   "version": "1.0.0",
-  "description": "task ExpressJS",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "test": "node server.js",
-    "start-dev": "./node_modules/nodemon/bin/nodemon.js server.js"
-  },
-  "keywords": [
-    "task",
-    "expressJS"
-  ],
-  "author": "aris",
-  "license": "ISC",
+  "description": "bootcamp xapiens nodejs",
+  "main": "app.js",
   "dependencies": {
-    "@sentry/node": "^6.0.4",
-    "@sentry/tracing": "^6.0.4",
+    "@sentry/node": "^6.1.0",
+    "@sentry/tracing": "^6.1.0",
     "axios": "^0.21.1",
-    "bcrypt": "^5.0.0",
+    "bcrypt-nodejs": "0.0.3",
     "bull": "^3.20.1",
     "bull-board": "^1.2.0",
-    "bullmq": "^1.14.4",
     "cloudinary": "^1.24.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.9.2",
+    "faker": "^5.4.0",
     "jsonwebtoken": "^8.5.1",
     "mailgun-js": "^0.22.0",
-    "moment-timezone": "^0.5.32",
+    "moment-timezone": "^0.5.33",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "next-tick": "^1.1.0",
+    "nodemon": "^2.0.7",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "redis": "^3.0.2",
     "sequelize": "^6.5.0",
+    "sequelize-cli": "^6.2.0",
     "winston": "^3.3.3"
   },
-  "devDependencies": {
-    "faker": "^5.2.0",
-    "nodemon": "^2.0.7",
-    "sequelize-cli": "^6.2.0"
-  }
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aris",
+  "license": "ISC"
 }
