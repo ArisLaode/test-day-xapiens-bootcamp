@@ -119,7 +119,7 @@ class UserController {
     try {
       const token = req.headers.authorization;
 
-      return baseResponse({ message: "Logout success" })(res, 200);
+      return baseResponse({ message: "You're logout " })(res, 200);
     } catch (err) {
       res.status(403);
       next(err);
