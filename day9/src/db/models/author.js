@@ -12,7 +12,14 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: {
           name: "author_id",
         },
-        as: "authors",
+        as: "author",
+      });
+
+      author.belongsToMany(models.publisher, {
+        through: models.book,
+        foreignKey: {
+          name: "author_id",
+        },
       });
     }
   }

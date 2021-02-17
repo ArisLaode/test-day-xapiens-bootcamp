@@ -6,6 +6,11 @@ class BookController {
     try {
       const payload = await book.findAll();
       baseResponse({ message: "books retrieved", data: payload })(res);
+
+      // const payload = await book.findAll({
+      //   include: "authors",
+      // });
+      // baseResponse({ message: "books retrieved", data: payload })(res);
     } catch (error) {
       console.log(error);
     }
